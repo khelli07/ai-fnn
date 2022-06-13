@@ -14,7 +14,7 @@ b = []
 
 neurons = [2, 3, 2, 1]
 number_of_layers = len(neurons) - 1
-lr = 0.0001
+lr = 1e-4  # 0.0001 = 10^-4
 epochs = 10000
 
 # Forward propagation
@@ -68,7 +68,7 @@ delta = (w[1].T @ delta) * RelU_backward(z[0])
 w[0] = w[0] - lr * (delta @ x.T)
 b[0] = b[0] - lr * (delta)
 
-for i in range(1, epochs - 1):
+for i in range(1, epochs):
     # Forward propagation
     for j in range(number_of_layers):
         if j == 0:
@@ -81,7 +81,7 @@ for i in range(1, epochs - 1):
     print(f"Epoch ({i + 1}/{epochs}), loss = {cost_forward(a[2], y)}")
 
     # Backward propagation
-    for j in range(number_of_layers - 1, 0, -1):
+    for j in range(number_of_layers - 1, -1, -1):
         if j == number_of_layers - 1:
             delta = cost_backward(a[j][0], y) * RelU_backward(z[j])
         else:
@@ -94,14 +94,15 @@ for i in range(1, epochs - 1):
 
         b[j] = b[j] - lr * (delta)
 
-print(a[2])
 
+# Epoch (10000/10000), loss = 7.572994422310824e-05
+# last y_train predicted (a[2]) = [[14.02074786 24.98681486  8.99915625 23.001178  ]]
 
 """
     Limitations:
     Be careful in choosing
         - learning rate,
-        - weight and bias initialization,
+        - weight and bias initialization technique,
         - and epochs
     It should be tweaked to achieve the desired result.
     Otherwise, an exploding gradient will occur.
