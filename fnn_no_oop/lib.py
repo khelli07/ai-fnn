@@ -12,8 +12,7 @@ def RelU_backward(inputs):
 
 # Cost
 def cost_forward(ypred, ytrue):
-    n = len(ytrue)
-    return (1 / (2 * n)) * (np.sum(np.square(ytrue - ypred)))
+    return 1 / 2 * (np.sum(np.square(ytrue - ypred)))
 
 
 def cost_backward(ypred, ytrue):

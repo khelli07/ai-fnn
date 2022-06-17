@@ -3,6 +3,7 @@ from lib import *
 
 x = np.array([[1, 2, 3, 4], [5, 8, 2, 6]])
 y = np.array([14, 25, 9, 23])  # 2x1 + 3x2 - 3
+# y = np.array([2, 9, 8, 19])  # x1^2 + x2 - 3
 number_of_samples = len(x[0])
 
 np.random.seed(0)
@@ -94,8 +95,9 @@ for i in range(1, epochs):
 
         b[j] = b[j] - lr * (delta)
 
+print("last y_train predicted (a[2]) =", a[2])
 
-# Epoch (10000/10000), loss = 7.572994422310824e-05
+# Epoch (10000/10000), loss = 0.00030291977689243294
 # last y_train predicted (a[2]) = [[14.02074786 24.98681486  8.99915625 23.001178  ]]
 
 """
