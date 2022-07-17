@@ -16,7 +16,7 @@ b = []
 neurons = [2, 3, 2, 1]
 number_of_layers = len(neurons) - 1
 lr = 1e-4  # 0.0001 = 10^-4
-epochs = 10
+epochs = 10000
 
 # Forward propagation
 """
