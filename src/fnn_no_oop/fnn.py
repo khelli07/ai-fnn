@@ -1,5 +1,5 @@
 import numpy as np
-from lib import *
+from utils import *
 
 x = np.array([[1, 2, 3, 4], [5, 8, 2, 6]])
 y = np.array([14, 25, 9, 23])  # 2x1 + 3x2 - 3
@@ -16,7 +16,7 @@ b = []
 neurons = [2, 3, 2, 1]
 number_of_layers = len(neurons) - 1
 lr = 1e-4  # 0.0001 = 10^-4
-epochs = 10000
+epochs = 10
 
 # Forward propagation
 """

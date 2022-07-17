@@ -1,5 +1,5 @@
 import numpy as np
-from lib import *
+from utils import *
 
 x = np.array([[1, 2, 3, 4], [5, 8, 2, 6]])
 y = np.array([14, 25, 9, 23])  # 2x1 + 3x2 - 3
