@@ -29,6 +29,7 @@ class Dense:
         next_propagated_error = self.weights.T @ delta
         return delta, next_propagated_error
 
-    def optimize(self, nabla_w, nabla_b):
+    def update(self, nabla_w, nabla_b):
         self.weights = self.weights - nabla_w
         self.bias = self.bias - nabla_b
+        self.bias = np.average(self.bias, axis=1).reshape(self.units, 1)
