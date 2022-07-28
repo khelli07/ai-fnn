@@ -17,8 +17,7 @@ class MeanSquaredError:
 class BinaryCrossentropy:
     @staticmethod
     def forward(ypred, ytrue):
-        n = len(ytrue)
-        return (-1 / n) * np.sum(
+        return np.sum(
             np.nan_to_num(-ytrue * np.log(ypred) - (1 - ytrue) * np.log(1 - ypred))
         )
 
